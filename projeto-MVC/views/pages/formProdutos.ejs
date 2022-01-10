@@ -1,0 +1,33 @@
+<%- include('../partials/header'); %>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="mt-5">Cadastrar Produtos</h1>
+        <form action="/produtos/cadastrarProdutos" method="POST">
+
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input class="form-control" type="text" id="nome" name="nome" placeholder="Nome do Produto" required>
+          </div>
+
+          <div class="form-group">
+            <label for="valor">Valor Unitário</label>
+            <input class="form-control" type="number" step="0.01" id="valor" name="valor" placeholder="0,00" required>
+          </div>
+
+          <div class="form-group">
+            <label for="codBar">Código de Barras</label>
+            <input class="form-control" type="text" id="codBar" name="codBarras" placeholder="00000000000000" required>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Enviar</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+<%- include('../partials/footer'); %>

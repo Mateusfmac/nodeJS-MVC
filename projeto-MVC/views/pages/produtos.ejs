@@ -1,0 +1,55 @@
+<%- include('../partials/header'); %>
+
+<body>
+  <section class="container">
+    <div class="row">
+      <div class="col">
+        <div class="row mt-5">
+          <div class="col-6">
+            <h1>Lista de Produtos</h1>
+          </div>
+
+          <div class="col-6">
+            <a href="/produtos/cadastrarProdutos" class="btn btn-primary">Inserir Produto</a>
+          </div>
+        </div>
+
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Valor</th>
+              <th>Codigo</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <!-- produtos do DB collection// produto de objetos -->
+            <% produto_itens.forEach(function(produto){ %>
+            <tr>
+              <td> <%= produto.nome %> </td>
+              <td> <%= produto.vlUnit %> </td>
+              <td> <%= produto.codigoBarras %> </td>
+              <td>
+                <a href="/produtos/editarProduto/<%= produto._id %>" class="btn btn-danger">Editar</a>
+                <a href="/produtos/deletarProduto/<%= produto._id %>" class="btn btn-warning">Deletar</a>
+              </td>
+            </tr>
+            <% }) %>
+
+            <!-- condicao mensagem -->
+            <% if(produto_itens == 0){ %>
+            <div class="alert alert-warning" role="alert">
+              Não há produtos cadastrados
+            </div>
+            <% } %>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </section>
+</body>
+
+<%- include('../partials/footer'); %>

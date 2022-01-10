@@ -1,0 +1,35 @@
+<%- include('../partials/header'); %>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="mt-5">Editar Produtos</h1>
+        <form action="/produtos/editarProduto" method="POST">
+
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input class="form-control" type="text" id="nome" name="nome" placeholder="Nome do Produto" required value="<%=produto_itens.nome %>">
+          </div>
+
+          <div class="form-group">
+            <label for="valor">Valor Unitário</label>
+            <input class="form-control" type="number" step="0.01" id="valor" name="valor" placeholder="0,00" required value="<%=produto_itens.vlUnit %>">
+          </div>
+
+          <div class="form-group">
+            <label for="codBar">Código de Barras</label>
+            <input class="form-control" type="text" id="codBar" name="codBarras" placeholder="00000000000000" required value="<%=produto_itens.codigoBarras %>">
+          </div>
+
+          <input type="hidden" name="id" value="<%=produto_itens._id %>">
+
+          <button class="btn btn-primary" type="submit">Salvar</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+<%- include('../partials/footer'); %>
